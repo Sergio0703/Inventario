@@ -33,7 +33,6 @@ session_start();
                                 <th>Razon Social</th>
                                 <th>Direccion</th>
                                 <th>Telefono</th>
-                                <th>RFC</th>
                                 <th>Correo</th>
                                 <th>Fecha</th>
                                 <th>Acciones.</th>
@@ -51,7 +50,6 @@ session_start();
                                     <td><?php echo $fila['r_social']; ?></td>
                                     <td><?php echo $fila['direccion']; ?></td>
                                     <td><?php echo $fila['telefono']; ?></td>
-                                    <td><?php echo $fila['rfc']; ?></td>
                                     <td><?php echo $fila['correo']; ?></td>
                                     <td><?php echo $fila['fecha']; ?></td>
                                     <td>
@@ -72,19 +70,19 @@ session_start();
                             const href = $(this).attr('href')
 
                             Swal.fire({
-                                title: 'Estas seguro de eliminar este registro?',
-                                text: "¡No podrás revertir esto!!",
+                                title: '¿Estas seguro de eliminar este registro?',
+                                text: "Esta acción no se puede deshacer.",
                                 icon: 'warning',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
-                                confirmButtonText: 'Si, eliminar!',
-                                cancelButtonText: 'Cancelar!',
+                                confirmButtonText: 'Si, eliminar',
+                                cancelButtonText: 'Cancelar',
                             }).then((result) => {
                                 if (result.value) {
                                     if (result.isConfirmed) {
                                         Swal.fire(
-                                            'Eliminado!',
+                                            'Eliminado',
                                             'El registro fue eliminado.',
                                             'success'
                                         )

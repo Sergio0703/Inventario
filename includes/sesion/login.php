@@ -17,8 +17,8 @@
         <div id="login"></div>
         <div class="row justify-content-center align-items-center min-vh-100">
             <div id="login-box" class="col-12 col-md-8 col-lg-6">
-                <h2 class="text-center">LOGIN | SOFTCODEPM</h2>
-                <p class="text-center">Ingrese su usuario y contraseña para iniciar sesión</p>
+                <h2 class="text-center">Iniciar Sesión</h2>
+                <p class="text-center">Ingrese su usuario y contraseña</p>
 
 
                 <div id="alert">
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Contraseña</label>
                         <input type="password" id="password" name="password" class="form-control" required>
                     </div>
 

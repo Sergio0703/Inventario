@@ -63,18 +63,18 @@ session_start();
 
                             Swal.fire({
                                 title: 'Estas seguro de eliminar este registro?',
-                                text: "¡No podrás revertir esto!!",
+                                text: "La acción no se puede deshacer",
                                 icon: 'warning',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
-                                confirmButtonText: 'Si, eliminar!',
-                                cancelButtonText: 'Cancelar!',
+                                confirmButtonText: 'Si, eliminar',
+                                cancelButtonText: 'Cancelar',
                             }).then((result) => {
                                 if (result.value) {
                                     if (result.isConfirmed) {
                                         Swal.fire(
-                                            'Eliminado!',
+                                            'Eliminado',
                                             'El registro fue eliminado.',
                                             'success'
                                         )

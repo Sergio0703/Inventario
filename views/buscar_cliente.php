@@ -1,5 +1,5 @@
 <?php
-include_once "../includes/db.php"; // Archivo que contiene la conexión a la base de datos
+include_once "../includes/db.php"; 
 
 if (isset($_GET['term'])) {
     $nombreCliente = $_GET['term'];

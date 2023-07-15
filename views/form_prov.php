@@ -41,16 +41,7 @@
                                 <label for="password">Telefono</label><br>
                                 <input type="tel" name="telefono" id="telefono" class="form-control" required>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <label for="password">RFC </label><br>
-                                <input type="text" name="rfc" id="rfc" class="form-control" required>
-                            </div>
-                        </div>
+</div>
 
                         <div class="col-sm-6">
                             <div class="mb-3">
@@ -59,6 +50,8 @@
                             </div>
                         </div>
                     </div>
+
+
 
 
                     <input type="hidden" name="accion" value="insertar_proveedor">

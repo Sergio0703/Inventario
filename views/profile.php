@@ -95,7 +95,7 @@ if ($usuarios->num_rows > 0) {
                                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                         <br>
                                         <h5 class="card-title">About</h5>
-                                        <p class="small fst-italic">Sistema de Inventario 2.0</p>
+                                        <p class="small fst-italic">Inventario</p>
                                         <br>
                                         <h5 class="card-title">Detalles de Perfil</h5>
 

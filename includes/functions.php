@@ -71,8 +71,8 @@ function insertar_proveedor()
     extract($_POST);
     include "db.php";
 
-    $consulta = "INSERT INTO proveedores (name, r_social, direccion, telefono, rfc, correo) 
-    VALUES ('$name', '$r_social','$direccion','$telefono','$rfc','$correo')";
+    $consulta = "INSERT INTO proveedores (name, r_social, direccion, telefono, correo) 
+    VALUES ('$name', '$r_social','$direccion','$telefono','$correo')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {
@@ -96,8 +96,8 @@ function insertar_inventario()
     extract($_POST);
     include "db.php";
 
-    $consulta = "INSERT INTO inventario (codigo, producto, existencia, minimo, venta, compra,unidad,id_categoria) 
-    VALUES ('$codigo', '$producto','$existencia','$minimo','$venta','$compra','$unidad','$id_categoria')";
+    $consulta = "INSERT INTO inventario (codigo, producto, existencia, venta, unidad ,id_categoria) 
+    VALUES ('$codigo', '$producto','$existencia', '$venta','$unidad','$id_categoria')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {
@@ -159,8 +159,8 @@ function editar_inv()
 
 
     $consulta = "UPDATE inventario SET codigo = '$codigo', producto = '$producto', 
-        compra = '$compra',  venta = '$venta', existencia = '$existencia',
-		minimo = '$minimo', unidad='$unidad', id_categoria = '$id_categoria' WHERE id = '$id' ";
+          venta = '$venta', existencia = '$existencia',
+		 unidad='$unidad', id_categoria = '$id_categoria' WHERE id = '$id' ";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {
@@ -178,7 +178,7 @@ function editar_prov()
 
 
     $consulta = "UPDATE proveedores SET name = '$name', r_social = '$r_social', 
-    direccion = '$direccion',  telefono = '$telefono', rfc = '$rfc', correo = '$correo' WHERE id = '$id' ";
+    direccion = '$direccion',  telefono = '$telefono', correo = '$correo' WHERE id = '$id' ";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {

@@ -38,7 +38,7 @@
 
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="password">Password</label><br>
+                                <label for="password">Contraseña</label><br>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="password">Confirmar Password</label><br>
+                                <label for="password">Confirmar contraseña</label><br>
                                 <input type="password" name="password2" id="password2" class="form-control" required>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
     function confirmation(r) {
         if (r === 'success') {
             Swal.fire({
-                'title': '¡Mensaje!',
+                'title': 'Mensaje',
                 'text': 'Usuario Registrado',
                 'icon': 'success',
                 'showConfirmButton': 'false',
@@ -131,7 +131,7 @@
         if (r === 'mail') {
             Swal.fire({
                 'title': 'Error',
-                'text': 'Este usuario ya esta registrado prueba con otro o inicia sesión',
+                'text': 'Este usuario ya esta registrado prueba con otro o inicia sesión con este',
                 'icon': 'error'
             })
         }
