@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2023 a las 02:55:23
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.8
+-- Tiempo de generación: 19-07-2023 a las 07:15:17
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,12 +38,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(37, 'TELEFONIA', '2023-05-30 23:25:42'),
-(38, 'JUGUETERIA', '2023-05-30 23:25:51'),
-(39, 'ELECTRONICA', '2023-07-01 22:40:39'),
-(40, 'FERRETERIA', '2023-05-30 23:26:07'),
-(41, 'MASCOTAS', '2023-05-30 23:27:07'),
-(42, 'ALIMENTOS', '2023-07-01 22:40:49');
+(44, 'Celulares', '2023-07-15 18:39:48'),
+(45, 'Televisores', '2023-07-15 18:40:00'),
+(46, 'Audifonos y equipos de sonido', '2023-07-15 19:47:24'),
+(48, 'Computadores ', '2023-07-15 18:48:32'),
+(49, 'Consolas y videojuegos', '2023-07-15 18:48:59'),
+(50, 'ELectrodomesticos de cocina', '2023-07-19 01:33:05');
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,9 @@ CREATE TABLE `codbarra` (
 
 INSERT INTO `codbarra` (`id`, `id_producto`, `codigo`) VALUES
 (1, 3, '023'),
-(2, 4, '0101');
+(2, 4, '0101'),
+(3, 9, '3000'),
+(4, 11, '5205');
 
 -- --------------------------------------------------------
 
@@ -99,20 +101,19 @@ CREATE TABLE `inventario` (
   `producto` varchar(250) NOT NULL,
   `existencia` int(11) NOT NULL,
   `minimo` int(11) NOT NULL,
-  `venta` float NOT NULL,
+  `venta` double NOT NULL,
   `compra` float NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `unidad` varchar(50) NOT NULL,
-  `id_categoria` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id_categoria` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `inventario`
 --
 
-INSERT INTO `inventario` (`id`, `codigo`, `producto`, `existencia`, `minimo`, `venta`, `compra`, `unidad`, `id_categoria`, `fecha`) VALUES
-(3, '023', 'Televisor Samsung', 20, 10, 2000, 1500, 'PZA', 39, '2023-07-01 16:24:07'),
-(4, '0101', 'Bocina', 19, 10, 1000, 500, 'PAQUETES', 37, '2023-07-01 16:27:40');
+INSERT INTO `inventario` (`id`, `codigo`, `producto`, `existencia`, `minimo`, `venta`, `compra`, `fecha`, `unidad`, `id_categoria`) VALUES
+(11, '5205', 'Samsung A50', 20, 10, 2000, 20, '2023-07-19 05:15:00', 'UND', 45);
 
 -- --------------------------------------------------------
 
@@ -168,8 +169,7 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id`, `name`, `r_social`, `direccion`, `telefono`, `rfc`, `correo`, `fecha`) VALUES
-(1, 'SABRITAS', 'PEPSICO S.A DE C.V', 'GUADALAJARA J', '2147483647', 'POMP010314IE7', 'lex@hotmail.com', '2023-05-30 23:44:13'),
-(2, 'REFRESCOS', 'COCA S.A DE C.V', 'CDMX', '9911165670', 'POML0412272U7', 'campos12@gmail.com', '2023-07-01 22:35:10');
+(3, 'Samsung', 'Samsung Electronics Co., Ltd', 'Samsung Electronics Colombia S.A. Carrera 68 # 24B-10, Local 42-43 Bogotá, Colombia', '(1) 7441818.', 'ssad', 'samsung@gmail.com', '2023-07-15 20:51:05');
 
 -- --------------------------------------------------------
 
@@ -192,8 +192,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `correo`, `telefono`, `password`, `fecha`, `id_rol`) VALUES
-(2, 'Ejemplo', 'example@gmail.com ', '8141137188', '$2y$05$2PLDl19.fsHtUZtEmmAT9u.dehxDPgi/FmcAtTeykiETGdSbpf5Km', '2023-05-30 17:02:15', 2),
-(5, 'Administrador', 'admin@softcodepm.com ', '45354356', '$2y$05$rSGStdVtYXAeIMxNwVR1suYBn4LT7zwImjLKvEMTT7Rxx1kKlCA8W', '2023-07-02 00:46:41', 1);
+(6, 'Sergio Camacho', 'sercam0320@gmail.com ', '3209617976', '$2y$05$qb4kJTaNPr0uBk/oA8TZpu0RQzDBnk3jDGaFEEft50gDJ8EgShmqS', '2023-07-15 19:58:57', 1),
+(9, 'Andres', 'nose@gmail.com ', '3228443626', '$2y$05$okKFBm7ErNienRo2VlkWmOHiqObfKlgx9s5k4.g3SbrnqIspF/5fG', '2023-07-19 03:00:05', 2);
 
 -- --------------------------------------------------------
 
@@ -277,7 +277,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -289,13 +289,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `codbarra`
 --
 ALTER TABLE `codbarra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -313,13 +313,13 @@ ALTER TABLE `productos_vendidos`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
