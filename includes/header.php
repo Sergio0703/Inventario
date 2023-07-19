@@ -97,22 +97,6 @@ if ($usuario == null || $usuario == ''  && $permiso == null || $permiso == '') {
                 Addons
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Entregas</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">VER MODULOS</h6>
-                        <a class="collapse-item" href="venta.php">Venta</a>
-
-
-                    </div>
-                </div>
-            </li>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="../views/categorias.php">

@@ -42,7 +42,6 @@
                 </form>
                 <br>
 
-                <p class="text-center">¿Olvidaste tu contraseña? <a href="../recovery.php">Haz clic aquí</a></p>
             </div>
         </div>
     </div>
