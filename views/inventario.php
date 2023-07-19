@@ -38,7 +38,9 @@ session_start();
                                 <th>Codigo</th>
                                 <th>Producto</th>
                                 <th>Cant</th>
+                                <th>Cant.Minima</th>
                                 <th>Venta</th>
+                                <th>Compra</th>
                                 <th>Unidad</th>
                                 <th>Categoria</th>
                                 <th>Fecha</th>
@@ -56,7 +58,9 @@ session_start();
                                     <td><?php echo $fila['codigo']; ?></td>
                                     <td><?php echo $fila['producto']; ?></td>
                                     <td><?php echo $fila['existencia']; ?></td>
+                                    <td><?php echo $fila['minimo']; ?></td>
                                     <td><?php echo $fila['venta']; ?></td>
+                                    <td><?php echo $fila['compra']; ?></td>
                                     <td><?php echo $fila['unidad']; ?></td>
                                     <td><?php echo $fila['id_categoria']; ?></td>
                                     <td><?php echo $fila['fecha']; ?></td>
@@ -78,19 +82,19 @@ session_start();
                             const href = $(this).attr('href')
 
                             Swal.fire({
-                                title: '¿Estas seguro de eliminar este registro?',
-                                text: "Esta acción no se puede deshacer",
+                                title: 'Estas seguro de eliminar este registro?',
+                                text: "¡No podrás revertir esto!!",
                                 icon: 'warning',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
-                                confirmButtonText: 'Si, eliminar',
-                                cancelButtonText: 'Cancelar',
+                                confirmButtonText: 'Si, eliminar!',
+                                cancelButtonText: 'Cancelar!',
                             }).then((result) => {
                                 if (result.value) {
                                     if (result.isConfirmed) {
                                         Swal.fire(
-                                            'Eliminado',
+                                            'Eliminado!',
                                             'El registro fue eliminado.',
                                             'success'
                                         )
@@ -132,11 +136,12 @@ session_start();
 
 </body>
 <script>
+    // Función para exportar la tabla a un archivo Excel
     function exportTableToExcel() {
 
         const table = document.getElementById('dataTable');
 
-        // Crear la matriz para almacenar los datos de la tabla
+        // Crear una matriz para almacenar los datos de la tabla
         const data = [];
 
         // Obtener todas las filas de la tabla

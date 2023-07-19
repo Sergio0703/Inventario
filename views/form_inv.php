@@ -27,7 +27,6 @@
                             </div>
                         </div>
                     </div>
-                
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -36,17 +35,30 @@
                                 <input type="number" name="existencia" id="existencia" class="form-control" required>
                             </div>
                         </div>
-</div>
+
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="password">Minimo</label><br>
+                                <input type="number" name="minimo" id="minimo" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="password">Precio Venta </label><br>
+                                <label for="password">Precio total</label><br>
                                 <input type="number" step=".01" id="venta" name="venta" class="form-control">
                             </div>
                         </div>
-</div>
 
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="password">Precio unitario</label><br>
+                                <input type="number" step=".01" id="compra" name="compra" class="form-control">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -72,6 +84,7 @@
                                     <?php
 
                                     include("../includes/db.php");
+                                    //Codigo para mostrar categorias desde otra tabla
                                     $sql = "SELECT * FROM categorias ";
                                     $resultado = mysqli_query($conexion, $sql);
                                     while ($consulta = mysqli_fetch_array($resultado)) {
@@ -84,7 +97,6 @@
                             </div>
                         </div>
                     </div>
-   </div>
 
 
                     <input type="hidden" name="accion" value="insertar_inventario">
