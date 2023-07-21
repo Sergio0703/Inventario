@@ -96,7 +96,7 @@ function insertar_inventario()
     extract($_POST);
     include "db.php";
 
-    $consulta = "INSERT INTO inventario (codigo, producto, existencia, minimo, venta, compra,unidad,id_categoria) 
+    $consulta = "INSERT INTO inventario (codigo, producto, existencia, minimo, venta, compra, unidad, id_categoria) 
     VALUES ('$codigo', '$producto','$existencia','$minimo','$venta','$compra','$unidad','$id_categoria')";
     $resultado = mysqli_query($conexion, $consulta);
 

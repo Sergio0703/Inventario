@@ -67,7 +67,6 @@
                                     <option <?php echo $fila['unidad'] === 'UND' ? 'selected' : ''; ?> value="UND">UND</option>
                                     <option <?php echo $fila['unidad'] === 'PZA' ? 'selected' : ''; ?> value="PZA">PZA</option>
                                     <option <?php echo $fila['unidad'] === 'PAQUETES' ? 'selected' : ''; ?> value="PAQUETES">PAQUETES</option>
-                                    <option <?php echo $fila['unidad'] === 'KG' ? 'selected' : ''; ?> value="KG">KG</option>
                                 </select>
                             </div>
                         </div>

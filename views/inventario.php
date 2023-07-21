@@ -62,7 +62,7 @@ session_start();
                                     <td><?php echo $fila['venta']; ?></td>
                                     <td><?php echo $fila['compra']; ?></td>
                                     <td><?php echo $fila['unidad']; ?></td>
-                                    <td><?php echo $fila['id_categoria']; ?></td>
+                                    <td><?php echo $fila['categorias']; ?></td>
                                     <td><?php echo $fila['fecha']; ?></td>
                                     <td>
                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar<?php echo $fila['id']; ?>">
@@ -83,18 +83,18 @@ session_start();
 
                             Swal.fire({
                                 title: 'Estas seguro de eliminar este registro?',
-                                text: "¡No podrás revertir esto!!",
+                                text: "Esta acción no se puede deshacer",
                                 icon: 'warning',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
-                                confirmButtonText: 'Si, eliminar!',
-                                cancelButtonText: 'Cancelar!',
+                                confirmButtonText: 'Si, eliminar',
+                                cancelButtonText: 'Cancelar',
                             }).then((result) => {
                                 if (result.value) {
                                     if (result.isConfirmed) {
                                         Swal.fire(
-                                            'Eliminado!',
+                                            'Eliminado',
                                             'El registro fue eliminado.',
                                             'success'
                                         )
@@ -136,7 +136,7 @@ session_start();
 
 </body>
 <script>
-    // Función para exportar la tabla a un archivo Excel
+
     function exportTableToExcel() {
 
         const table = document.getElementById('dataTable');

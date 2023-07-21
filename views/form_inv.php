@@ -69,7 +69,6 @@
                                     <option value="UND">UND</option>
                                     <option value="PZA">PZA</option>
                                     <option value="PAQUETES">PAQUETES</option>
-                                    <option value="KG">KG</option>
 
 
                                 </select>
