@@ -62,7 +62,7 @@ session_start();
                                     <td><?php echo $fila['venta']; ?></td>
                                     <td><?php echo $fila['compra']; ?></td>
                                     <td><?php echo $fila['unidad']; ?></td>
-                                    <td><?php echo $fila['categorias']; ?></td>
+                                    <td><?php echo $fila['id_categoria']; ?></td>
                                     <td><?php echo $fila['fecha']; ?></td>
                                     <td>
                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar<?php echo $fila['id']; ?>">
