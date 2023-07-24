@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2023 a las 07:15:17
+-- Tiempo de generación: 24-07-2023 a las 23:23:44
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.5
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `invent`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarProducto` (IN `p_producto` VARCHAR(250), IN `p_codigo` VARCHAR(250), IN `p_existencia` INT(11), IN `p_minimo` INT(11), IN `p_venta` DOUBLE, IN `p_compra` FLOAT, IN `p_unidad` VARCHAR(50), IN `p_id_categoria` INT(11))   BEGIN
+    IF p_id_categoria BETWEEN 1 AND 6 THEN
+        INSERT INTO inventario (producto, codigo, existencia, minimo, venta, compra, unidad, id_categoria)
+        VALUES (p_producto, p_codigo, p_existencia, p_minimo, p_venta, p_compra, p_unidad, p_id_categoria);
+    ELSE
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El valor de id_categoria debe estar entre 1 y 6.';
+    END IF;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -38,12 +53,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(44, 'Celulares', '2023-07-15 18:39:48'),
-(45, 'Televisores', '2023-07-15 18:40:00'),
-(46, 'Audifonos y equipos de sonido', '2023-07-15 19:47:24'),
-(48, 'Computadores ', '2023-07-15 18:48:32'),
-(49, 'Consolas y videojuegos', '2023-07-15 18:48:59'),
-(50, 'ELectrodomesticos de cocina', '2023-07-19 01:33:05');
+(1, 'Televisores', '2023-07-21 03:08:05'),
+(2, 'Celulares', '2023-07-21 03:08:13'),
+(3, 'Audifonos y equipos de sonido', '2023-07-21 03:08:25'),
+(4, 'Computadores e informatica', '2023-07-21 03:08:33'),
+(5, 'Tarjetas de regalo', '2023-07-21 03:08:43'),
+(6, 'Consolas y videojuegos', '2023-07-21 03:09:06');
 
 -- --------------------------------------------------------
 
@@ -107,13 +122,6 @@ CREATE TABLE `inventario` (
   `unidad` varchar(50) NOT NULL,
   `id_categoria` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `inventario`
---
-
-INSERT INTO `inventario` (`id`, `codigo`, `producto`, `existencia`, `minimo`, `venta`, `compra`, `fecha`, `unidad`, `id_categoria`) VALUES
-(11, '5205', 'Samsung A50', 20, 10, 2000, 20, '2023-07-19 05:15:00', 'UND', 45);
 
 -- --------------------------------------------------------
 
@@ -193,7 +201,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `usuario`, `correo`, `telefono`, `password`, `fecha`, `id_rol`) VALUES
 (6, 'Sergio Camacho', 'sercam0320@gmail.com ', '3209617976', '$2y$05$qb4kJTaNPr0uBk/oA8TZpu0RQzDBnk3jDGaFEEft50gDJ8EgShmqS', '2023-07-15 19:58:57', 1),
-(9, 'Andres', 'nose@gmail.com ', '3228443626', '$2y$05$okKFBm7ErNienRo2VlkWmOHiqObfKlgx9s5k4.g3SbrnqIspF/5fG', '2023-07-19 03:00:05', 2);
+(10, 'Andres', 'andres@gmail.com ', '3228443626', '$2y$05$ywfzC9GcAEgBS.45FqN6au1McVXO8Z4D.V64/0/QySJ3c5ezQQtUW', '2023-07-24 20:59:46', 2);
 
 -- --------------------------------------------------------
 
@@ -277,7 +285,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -295,7 +303,7 @@ ALTER TABLE `codbarra`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -319,7 +327,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
